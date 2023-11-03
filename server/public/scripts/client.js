@@ -1,1 +1,1 @@
-console.log('client.js is sourced!');
+console.log("client.js is sourced!")
