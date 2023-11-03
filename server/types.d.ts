@@ -1,11 +1,16 @@
 // This just has some types shared between the server & client
 
+type Operator = "+" | "-" | "*" | "/"
+
 interface CalculationRequest {
-  numOne: number
-  numTwo: number
-  operator: "+" | "-" | "*" | "/"
+  numOne: number | string
+  numTwo: number | string
+  operator: Operator
 }
 
-interface Calculation extends CalculationRequest {
+interface Calculation {
+  numOne: number | string
+  numTwo: number | string
+  operator: Operator
   result: number
 }

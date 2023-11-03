@@ -18,6 +18,46 @@ app.get("/calculations", (req, res) => {
 })
 
 // POST /calculations
+app.post("/calculations", (req, res) => {
+  /** @type {CalculationRequest} */
+  const calc = req.body
+  console.log(calc)
+
+  /** @type {Calculation} */
+  const result = {
+    result: calculate(Number(calc.numOne), calc.operator, Number(calc.numTwo)),
+    ...calc,
+  }
+  console.log(result)
+
+  calculations.push(result)
+  console.log(calculations)
+
+  res.sendStatus(201)
+})
+
+/**
+ * Calculates a result based on two numbers and an operator
+ * @param {number} left Left hand number
+ * @param {Operator} operator The operation to perform
+ * @param {number} right Right hand number
+ * @returns {number} The result of the calculation
+ */
+function calculate(left, operator, right) {
+  console.log(left, operator, right)
+  switch (operator) {
+    case "+":
+      return left + right
+    case "-":
+      return left - right
+    case "*":
+      return left * right
+    case "/":
+      return left / right
+    default:
+      throw new Error(`Unknown operator: ${operator}`)
+  }
+}
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
