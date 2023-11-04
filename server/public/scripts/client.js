@@ -26,9 +26,11 @@ function getHistory() {
     /** @type {Calculation[]} */
     const history = res.data
     console.debug("history:", history)
-    renderResult(history.at(-1).result)
-    for (const calculation of history) {
-      renderHistory(calculation)
+    if (history.length) {
+      renderResult(history.at(-1).result)
+      for (const calculation of history) {
+        renderHistory(calculation)
+      }
     }
   })
 }
