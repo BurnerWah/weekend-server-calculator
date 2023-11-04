@@ -59,4 +59,16 @@ function renderHistory(calculation) {
 
 getHistory()
 
+/** @type {HTMLFormElement} */
+const calculator = document.querySelector("form#calculator")
+calculator.addEventListener("submit", (e) => {
+  e.preventDefault()
+  console.log(e)
+  // Found this by accident while looking at MDN
+  const formData = new FormData(calculator)
+  console.log(formData)
+  const numOne = Number(formData.get("numOne"))
+  const numTwo = Number(formData.get("numTwo"))
+})
+
 console.log("client.js is sourced!")

@@ -10,13 +10,23 @@
   <body>
     <h1>Server-Side Calculator</h1>
 
-    <form data-testid="calculator">
-      <input id="leftNumber" type="number" placeholder="First Number" />
+    <form id="calculator" data-testid="calculator">
+      <input
+        id="leftNumber"
+        name="numOne"
+        type="number"
+        placeholder="First Number"
+      />
       <button id="addition" type="button">+</button>
       <button id="subtraction" type="button">-</button>
       <button id="multiply" type="button">*</button>
       <button id="division" type="button">/</button>
-      <input id="rightNumber" type="number" placeholder="Second Number" />
+      <input
+        id="rightNumber"
+        name="numTwo"
+        type="number"
+        placeholder="Second Number"
+      />
       <button id="equals" type="submit">=</button>
       <button id="clear" type="button">C</button>
     </form>
