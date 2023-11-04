@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Server-Side Calculator</title>
     <script defer src="scripts/axios.js"></script>
     <script defer src="scripts/client.js" charset="utf-8"></script>
@@ -10,21 +11,21 @@
     <h1>Server-Side Calculator</h1>
 
     <form data-testid="calculator">
-      <input placeholder="First Number" />
-      <button>+</button>
-      <button>-</button>
-      <button>*</button>
-      <button>/</button>
-      <input placeholder="Second Number" />
-      <button>=</button>
-      <button>C</button>
+      <input id="leftNumber" type="number" placeholder="First Number" />
+      <button id="addition" type="button">+</button>
+      <button id="subtraction" type="button">-</button>
+      <button id="multiply" type="button">*</button>
+      <button id="division" type="button">/</button>
+      <input id="rightNumber" type="number" placeholder="Second Number" />
+      <button id="equals" type="submit">=</button>
+      <button id="clear" type="button">C</button>
     </form>
 
-    <section data-testid="recentResult">
+    <section id="results" data-testid="recentResult">
       <!-- The most recent calculation result goes here. -->
     </section>
 
-    <section data-testid="resultHistory">
+    <section id="history" data-testid="resultHistory">
       <!-- The list of calculation results goes here. -->
     </section>
   </body>
