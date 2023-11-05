@@ -28,6 +28,7 @@ function getHistory() {
     console.debug("history:", history)
     if (history.length) {
       renderResult(history.at(-1).result)
+      clearHistory()
       for (const calculation of history) {
         renderHistory(calculation)
       }
@@ -55,6 +56,11 @@ function renderHistory(calculation) {
   const li = document.createElement("li")
   li.textContent = `${calculation.numOne} ${calculation.operator} ${calculation.numTwo} = ${calculation.result}`
   history.appendChild(li)
+}
+function clearHistory() {
+  /** @type {HTMLElement} */
+  const history = document.querySelector("section#history")
+  history.innerHTML = ""
 }
 
 getHistory()
