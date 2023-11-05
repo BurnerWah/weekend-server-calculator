@@ -84,10 +84,17 @@ calculator.addEventListener("submit", (e) => {
       data,
     }).then(() => {
       getHistory()
-      operator = null
+      clearInputs()
     })
   }
 })
+
+function clearInputs() {
+  operator = null
+  document.querySelector("input#leftNumber").value = ""
+  document.querySelector("input#rightNumber").value = ""
+}
+document.querySelector("button#clear").addEventListener("click", clearInputs)
 
 // Would prefer if the buttons were radio buttons so this was less janky
 // This works but it's I don't like it
