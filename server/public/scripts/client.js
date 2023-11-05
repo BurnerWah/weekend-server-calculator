@@ -25,7 +25,7 @@ function getHistory() {
     // and IMO having logs in the console is helpful
     /** @type {Calculation[]} */
     const history = res.data
-    console.debug("history:", history)
+    console.log("history:", history)
     if (history.length) {
       renderResult(history.at(-1).result)
       clearHistory()
