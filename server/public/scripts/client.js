@@ -69,6 +69,35 @@ calculator.addEventListener("submit", (e) => {
   console.log(formData)
   const numOne = Number(formData.get("numOne"))
   const numTwo = Number(formData.get("numTwo"))
+  if (operator) {
+    const data = { numOne, numTwo, operator }
+    console.log(data)
+    axios({
+      method: "POST",
+      url: "/calculations",
+      data,
+    }).then(() => {
+      getHistory()
+      operator = null
+    })
+  }
 })
+
+// Would prefer if the buttons were radio buttons so this was less janky
+// This works but it's I don't like it
+/** @type {(Operator|null)} */
+let operator = null
+document
+  .querySelector("button#addition")
+  .addEventListener("click", () => (operator = "+"))
+document
+  .querySelector("button#subtraction")
+  .addEventListener("click", () => (operator = "-"))
+document
+  .querySelector("button#multiplication")
+  .addEventListener("click", () => (operator = "*"))
+document
+  .querySelector("button#division")
+  .addEventListener("click", () => (operator = "/"))
 
 console.log("client.js is sourced!")
